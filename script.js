@@ -1,19 +1,3 @@
-/* 
-CONTEÚDOS: 
-useInterval, useTimeout, forms, promises, throttle, closures e callbacks 
-*/
-
-/* 
-PASSOS:
-1. [x]Enviar mensagem com nome de usuário ao clicar no enter/botão de envio
-2. [x]Mensagens exibidas de baixo para cima
-3. [x]Gerar mensagens aleatórias a cada 10 segundos
-   > (Função generateRandomComment que retorna uma promise)
-4. [x]Gerar uma mensagem aleatória 2 segundos após eu enviar uma mensagem
-5. []Intervalo de 4 segundos para clicar no enter/botão de envio (Throttle - rate limiter)
-*/
-
-
 const user = "thali";
 const chat = document.querySelector("#chat");
 const messageInput = document.querySelector('#message-input');
@@ -45,17 +29,14 @@ function sendMessage(user, message) {
     chat.appendChild(userElement);
     chat.appendChild(messageElement);
     chat.appendChild(messageContainer);
-
-    //Limpa o campo de input
-    messageInput.value = ''; 
   };
 };
 
   //Função para evento de clique para envio
 function submit(event) {
-  if (event.type =="click" || (event.type === "keydown" && event.key === "Enter")) {
     const message = messageInput.value.trim();
     sendMessage(user, message); 
+    messageInput.value = '';  //Limpa o campo de input
 
     setTimeout(async () => {
       try {
@@ -66,9 +47,8 @@ function submit(event) {
       }
     }, 2000);
   }
-}
 
-//----
+//Intervalo de 4 segundos para clicar no enter/botão de envio 
 function throttle(func, delay) {
   let timeout = false;
  
@@ -80,13 +60,19 @@ function throttle(func, delay) {
   timeout = false;
   }, delay);
   };
+}
+
+messageInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    throttleSubmit()
   }
- 
-  const throttleSubmit = throttle(() => submit(), 4000);
-  submitBtn.addEventListener("click", () => {
+});
+
+submitBtn.addEventListener("click", () => {
   throttleSubmit()
-  });
-//---
+});
+
+const throttleSubmit = throttle(() => submit(), 4000);
 
 //Gerar cores aleatórias para os usuários
 function generateRandomColor() {
