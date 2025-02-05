@@ -1,0 +1,145 @@
+/* CORES */
+:root {
+    --bg: #0e0e10;
+    --bg-chat: #18181b;
+    --color-title: #dedee3;
+    --color-border: #353535;
+    --color-purple: #9147ff;
+    --color-purple-dark: #7c29f7;
+}
+
+body {
+    background-color: var(--bg);
+}
+
+.chat {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 450px;
+    height: 85vh;
+    margin: 50px auto;
+    background-color: var(--bg-chat);
+    color: var(--color-title);
+    border: 1px solid var(--color-border);
+}
+
+
+/* HEADER */
+.chat__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.chat__title i {
+    cursor: pointer;
+}
+
+.chat__title-text {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+/* ÁREA DE INPUT */
+.chat__input {
+    position: absolute;
+    bottom: 55px;
+    left: 5px;
+    width: 93%;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    gap: 10px;
+}
+
+.chat__input input {
+    width: 90%;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    outline: none;
+}
+
+.chat__input i {
+    cursor: pointer;
+}
+
+/* RODAPÉ */
+.chat__footer {
+    position: absolute;
+    bottom: 0;
+    left: 4px;
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.chat__footer i {
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.chat__footer i:nth-child(3) {
+    margin-left: 60%;
+}
+
+i:hover {
+    color: var(--color-purple);
+}
+
+.chat__footer button {
+    background-color: var(--color-purple);
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--color-purple-dark);
+}
+
+
+/* MENSAGENS */
+#chat {
+    position: absolute;
+    bottom: 100px;
+    margin: 15px;
+    width: 430px;
+    max-height: 620px;
+    overflow-y: auto;
+}
+
+#chat::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 50px;
+    background-color: var(--bg-chat)
+}
+
+#chat::-webkit-scrollbar-thumb {
+    border-radius: 50px;
+    background-color: var(--color-border);
+}
+
+.message-container {
+    margin-bottom: 10px;
+}
+
+.user {
+    font-weight: 600;
+}

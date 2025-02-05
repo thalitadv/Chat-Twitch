@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Twitch</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css"/>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="./img/twitch_icon.png" type="image/x-icon">
+</head>
+
+<body>
+    <main class="chat">
+        <!-- Cabeçalho do Chat -->
+        <header class="chat__title">
+            <i class="fa fa-arrow-right"></i>
+            <h1 class="chat__title-text">Chat da Transmissão</h1>
+            <i class="fa fa-users"></i>
+        </header>
+      
+        <div id="chat"></div>
+
+        <!-- Input do Chat -->
+        <div class="chat__input">
+            <i class="fa fa-star"></i>
+            <input type="text" autocomplete="off" id="message-input" placeholder="Envie uma mensagem">
+            <i class="fa fa-gift"></i>
+            <i class="fa fa-face-smile"></i>
+        </div>
+    
+        <!-- Rodapé do Chat -->
+        <div class="chat__footer">
+            <i class="fa-solid fa-heart"></i>
+            <i class="fa-solid fa-box"></i>
+            <i class="fa fa-gear"></i>
+            <button type="button" id="submit-btn">Chat</button>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
