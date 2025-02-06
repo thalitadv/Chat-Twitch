@@ -26,8 +26,8 @@ function sendMessage(user, message) {
     messageElement.textContent = message; //Exibe a mensagem
 
     //Adiciona os novos elementos ao chat
-    chat.appendChild(userElement);
-    chat.appendChild(messageElement);
+    messageContainer.appendChild(userElement);
+    messageContainer.appendChild(messageElement);
     chat.appendChild(messageContainer);
   };
 };
@@ -41,7 +41,7 @@ function submit(event) {
     setTimeout(async () => {
       try {
         const {user, message} = await generateRandomComment();
-        sendRandomMessage(user, message); // Envia a mensagem aleatória após 2 segundos
+        sendMessage(user, message); // Envia a mensagem aleatória após 2 segundos
       } catch (error) {
         console.error("Erro ao gerar mensagem:", error);
       }
@@ -88,15 +88,11 @@ const generateRandomComment = () => {
   });
 };
 
-// Envio de mensagem aleatória
-const sendRandomMessage = (user, message) => {
-  sendMessage(user, message); // Envia a mensagem aleatória utilizando a mesma função de envio
-};
-
+//Envia mensagens aleatórias a cada 10 segundos
   setInterval(async () => {
     try {
       const { user, message } = await generateRandomComment();
-      sendRandomMessage(user, message); 
+      sendMessage(user, message); 
     } catch (error) {
       console.error("Erro ao gerar mensagem:", error);
     }
