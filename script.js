@@ -64,15 +64,15 @@ function throttle(func, delay) {
 
 messageInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
-    throttleSubmit()
+    throttledSubmit()
   }
 });
 
 submitBtn.addEventListener("click", () => {
-  throttleSubmit()
+  throttledSubmit()
 });
 
-const throttleSubmit = throttle(() => submit(), 4000);
+const throttledSubmit = throttle(() => submit(), 4000);
 
 //Gerar cores aleatórias para os usuários
 function generateRandomColor() {
